@@ -186,11 +186,6 @@
         </div>
 
         <div class="card">
-          <strong data-ja="방문자" data-ko="방문자">방문자</strong>
-          <p id="visitor-count">--</p>
-        </div>
-
-        <div class="card">
           <strong data-ja="문의" data-ko="문의">문의</strong>
           <p data-ja="連絡は@OwO___VV2で" data-ko="연락은 @OwO___VV2 로">연락은 @OwO___VV2 로</p>
         </div>
@@ -224,13 +219,7 @@
     document.getElementById('lang-ko').addEventListener('click', ()=>setLang('ko'));
     const savedLang = localStorage.getItem('site-lang') || 'ja';
     setLang(savedLang);
-
-    // 방문자 카운트 (간단한 로컬 카운트)
-    let visits = parseInt(localStorage.getItem('visitor-count')||'0');
-    visits++;
-    localStorage.setItem('visitor-count', visits);
-    document.getElementById('visitor-count').textContent = visits + ' 방문';
-
+    
     // 다이어리 저장 (로컬 스토리지 기반)
     const diaryForm = document.getElementById('diary-form');
     const diaryList = document.getElementById('diary-list');
