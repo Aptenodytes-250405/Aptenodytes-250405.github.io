@@ -15,6 +15,20 @@
       text-align:center;
       margin-bottom:24px;
     }
+    .lang {
+      text-align:center;
+      margin-bottom:20px;
+    }
+    .lang button {
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.3);
+      padding:6px 12px;
+      border-radius:8px;
+      color:#b7c0d6;
+      margin:0 6px;
+      cursor:pointer;
+      font-weight:bold;
+    }
     .comic img {
       width:100%;         /* 화면 폭 맞춤 */
       max-width:600px;    /* 최대 크기 제한 */
@@ -35,21 +49,79 @@
 <body>
   <h1>Pop the question</h1>
 
-  <div class="Pop the question">
-    <img src="https://i.imgur.com/p8ffBz0.jpeg" alt="Pop the question 이미지1">
-    <img src="https://i.imgur.com/5Hh7qmy.jpeg" alt="Pop the question 이미지2">
-    <img src="https://i.imgur.com/RmzXwRQ.jpeg" alt="Pop the question 이미지3">
-    <img src="https://i.imgur.com/SLIYu2R.jpeg" alt="Pop the question 이미지4">
-    <img src="https://i.imgur.com/6FXAW4b.jpeg" alt="Pop the question 이미지5">
-    <img src="https://i.imgur.com/Gfv91lq.jpeg" alt="Pop the question 이미지6">
-    <img src="https://i.imgur.com/NOpG3gC.jpeg" alt="Pop the question 이미지7">
-    <img src="https://i.imgur.com/t50sAll.jpeg" alt="Pop the question 이미지8">
-    <img src="https://i.imgur.com/zogPYIh.jpeg" alt="Pop the question 이미지9">
-    <img src="https://i.imgur.com/YtlzAvG.jpeg" alt="Pop the question 이미지10">
-    <img src="https://i.imgur.com/73nkzuO.jpeg" alt="Pop the question 이미지11">
-    <!-- 원하는 만큼 이미지 추가 -->
+  <!-- 언어 버튼 -->
+  <div class="lang">
+    <button id="lang-ko">한국어</button>
+    <button id="lang-ja">日本語</button>
+  </div>
+
+  <!-- 만화 이미지 -->
+  <div class="comic">
+    <img src="https://i.imgur.com/p8ffBz0.jpeg" 
+         data-ko="https://i.imgur.com/p8ffBz0.jpeg" 
+         data-ja="https://i.imgur.com/ja_image1.jpeg" 
+         alt="Pop the question 이미지1">
+    <img src="https://i.imgur.com/5Hh7qmy.jpeg" 
+         data-ko="https://i.imgur.com/5Hh7qmy.jpeg" 
+         data-ja="https://i.imgur.com/ja_image2.jpeg" 
+         alt="Pop the question 이미지2">
+    <img src="https://i.imgur.com/RmzXwRQ.jpeg" 
+         data-ko="https://i.imgur.com/RmzXwRQ.jpeg" 
+         data-ja="https://i.imgur.com/ja_image3.jpeg" 
+         alt="Pop the question 이미지3">
+    <img src="https://i.imgur.com/SLIYu2R.jpeg" 
+         data-ko="https://i.imgur.com/SLIYu2R.jpeg" 
+         data-ja="https://i.imgur.com/ja_image4.jpeg" 
+         alt="Pop the question 이미지4">
+    <img src="https://i.imgur.com/6FXAW4b.jpeg" 
+         data-ko="https://i.imgur.com/6FXAW4b.jpeg" 
+         data-ja="https://i.imgur.com/ja_image5.jpeg" 
+         alt="Pop the question 이미지5">
+    <img src="https://i.imgur.com/Gfv91lq.jpeg" 
+         data-ko="https://i.imgur.com/Gfv91lq.jpeg" 
+         data-ja="https://i.imgur.com/ja_image6.jpeg" 
+         alt="Pop the question 이미지6">
+    <img src="https://i.imgur.com/NOpG3gC.jpeg" 
+         data-ko="https://i.imgur.com/NOpG3gC.jpeg" 
+         data-ja="https://i.imgur.com/ja_image7.jpeg" 
+         alt="Pop the question 이미지7">
+    <img src="https://i.imgur.com/t50sAll.jpeg" 
+         data-ko="https://i.imgur.com/t50sAll.jpeg" 
+         data-ja="https://i.imgur.com/ja_image8.jpeg" 
+         alt="Pop the question 이미지8">
+    <img src="https://i.imgur.com/zogPYIh.jpeg" 
+         data-ko="https://i.imgur.com/zogPYIh.jpeg" 
+         data-ja="https://i.imgur.com/ja_image9.jpeg" 
+         alt="Pop the question 이미지9">
+    <img src="https://i.imgur.com/YtlzAvG.jpeg" 
+         data-ko="https://i.imgur.com/YtlzAvG.jpeg" 
+         data-ja="https://i.imgur.com/ja_image10.jpeg" 
+         alt="Pop the question 이미지10">
+    <img src="https://i.imgur.com/73nkzuO.jpeg" 
+         data-ko="https://i.imgur.com/73nkzuO.jpeg" 
+         data-ja="https://i.imgur.com/ja_image11.jpeg" 
+         alt="Pop the question 이미지11">
   </div>
 
   <a href="index.html" class="home">← 홈으로 돌아가기</a>
+
+  <script>
+    const btnKo = document.getElementById('lang-ko');
+    const btnJa = document.getElementById('lang-ja');
+
+    function setLang(lang){
+      document.querySelectorAll('.comic img').forEach(img=>{
+        img.src = img.getAttribute('data-' + lang);
+      });
+      localStorage.setItem('comic-lang', lang); // 새로고침 후에도 유지
+    }
+
+    // 저장된 언어 불러오기
+    const savedLang = localStorage.getItem('comic-lang') || 'ko';
+    setLang(savedLang);
+
+    btnKo.addEventListener('click', ()=>setLang('ko'));
+    btnJa.addEventListener('click', ()=>setLang('ja'));
+  </script>
 </body>
 </html>
