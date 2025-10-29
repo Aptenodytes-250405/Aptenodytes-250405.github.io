@@ -1,182 +1,150 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>황제펭귄 먹이주기 / 개인 홈페이지</title>
-  <meta name="description" content="개인 홈페이지 — 일기, 갤러리, 링크, 방명록 포함">
-  <style>
-    :root{
-      --bg:#0b0710;
-      --card:#0f1220;
-      --muted:#b7c0d6;
-      --accent:#9fb4ff;
-      --glass: rgba(255,255,255,0.04);
-      --radius:14px;
-      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0; background: radial-gradient(1000px 400px at 10% 10%, rgba(159,180,255,0.06), transparent), var(--bg);
-      color:var(--muted); -webkit-font-smoothing:antialiased; padding:32px; box-sizing:border-box;
-    }
-    .wrap{max-width:980px;margin:0 auto;}
-    header{display:flex;gap:16px;align-items:center;margin-bottom:20px; flex-wrap:wrap;}
-    .title{
-      background:linear-gradient(90deg,#fff2 0,#fff0 60%);
-      -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; font-size:28px;
-    }
-    .subtitle{font-size:12px;color:var(--muted);}
-    nav{display:flex;gap:8px;flex-wrap:wrap}
-    .btn{background:var(--card); padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13px;border:1px solid rgba(255,255,255,0.03)}
-    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
-    main{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:18px;border-radius:var(--radius);min-height:320px}
-    aside{position:sticky;top:32px;background:var(--card);padding:14px;border-radius:12px}
-    h2{color:var(--accent);margin:0 0 12px 0}
-    .card{background:var(--glass);padding:12px;border-radius:12px;margin-bottom:12px}
-    /* diary list */
-    .diary-list{list-style:none;padding:0;margin:0}
-    .diary-item{padding:10px;border-bottom:1px dashed rgba(255,255,255,0.03)}
-    .meta{font-size:12px;color:#9aa7d3}
-    /* gallery */
-    .gallery{display:flex;flex-wrap:wrap;gap:10px}
-    .thumb {
-      width: 200px;
-      height: 150px;
-      border-radius: 8px;
-      overflow: hidden;
-    }
-    .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    /* 클릭 시 원본 이미지 팝업용 모달 */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-    }
-    .modal img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-    .modal:target { display: flex; }
-    /* links / banners */
-    .banners{display:flex;flex-wrap:wrap;gap:8px}
-    .banner{display:block;padding:6px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
-    /* guestbook */
-    .guestbook-list{max-height:200px;overflow:auto}
-    .guest-item{padding:8px;border-bottom:1px solid rgba(255,255,255,0.02)}
-    footer{margin-top:18px;font-size:12px;color:#8086b0}
-    /* language toggle */
-    .lang{margin-left:auto;display:flex;gap:6px}
-    .lang button{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:8px;color:var(--muted)}
-    /* responsive */
-    @media (max-width:860px){.grid{grid-template-columns:1fr} .thumb{width:calc(50% - 5px)}}
-    @media (max-width:480px){body{padding:16px}.title{font-size:20px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>황제펭귄 먹이주기 / 개인 홈페이지</title>
+<meta name="description" content="개인 홈페이지 — 일기, 갤러리, 링크, 방명록 포함">
+<style>
+:root{
+  --bg:#0b0710;
+  --card:#0f1220;
+  --muted:#b7c0d6;
+  --accent:#9fb4ff;
+  --glass: rgba(255,255,255,0.04);
+  --radius:14px;
+  font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+html,body{height:100%;}
+body{
+  margin:0; background: radial-gradient(1000px 400px at 10% 10%, rgba(159,180,255,0.06), transparent), var(--bg);
+  color:var(--muted); -webkit-font-smoothing:antialiased; padding:32px; box-sizing:border-box;
+}
+.wrap{max-width:980px;margin:0 auto;}
+header{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+.title{
+  background:linear-gradient(90deg,#fff2 0,#fff0 60%);
+  -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; font-size:28px;
+}
+.subtitle{font-size:12px;color:var(--muted);}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:var(--card); padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13px;border:1px solid rgba(255,255,255,0.03)}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+main{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:18px;border-radius:var(--radius);min-height:320px}
+aside{position:sticky;top:32px;background:var(--card);padding:14px;border-radius:12px}
+h2{color:var(--accent);margin:0 0 12px 0}
+.card{background:var(--glass);padding:12px;border-radius:12px;margin-bottom:12px}
+/* diary list */
+.diary-list{list-style:none;padding:0;margin:0}
+.diary-item{padding:10px;border-bottom:1px dashed rgba(255,255,255,0.03)}
+.meta{font-size:12px;color:#9aa7d3}
+/* gallery */
+.gallery{display:flex;flex-wrap:wrap;gap:10px}
+.thumb {
+  width: 200px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* 클릭 시 원본 이미지 팝업용 모달 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+.modal:target {display: flex;}
+/* links / banners */
+.banners{display:flex;flex-wrap:wrap;gap:8px}
+.banner{display:block;padding:6px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
+/* guestbook */
+.guestbook-list{max-height:200px;overflow:auto}
+.guest-item{padding:8px;border-bottom:1px solid rgba(255,255,255,0.02)}
+footer{margin-top:18px;font-size:12px;color:#8086b0}
+/* language toggle */
+.lang{margin-left:auto;display:flex;gap:6px}
+.lang button{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:8px;color:var(--muted)}
+/* responsive */
+@media (max-width:860px){.grid{grid-template-columns:1fr} .thumb{width:calc(50% - 5px)}}
+@media (max-width:480px){body{padding:16px}.title{font-size:20px}}
+</style>
 </head>
 <body>
-  <div class="wrap" id="site">
-    <header>
-      <div>
-        <div class="title" id="site-title">황제펭귄 먹이주기</div>
-        <div class="subtitle" id="site-sub">創作中心・気ままな日記</div>
-      </div>
-      <nav aria-label="main nav">
-        <a class="btn" href="#diary" data-section="diary">日記 / 일기</a>
-        <a class="btn" href="#gallery" data-section="gallery">ギャラリー / 갤러리</a>
-        <a class="btn" href="#links" data-section="links">リンク / 링크</a>
-        <a class="btn" href="#guest" data-section="guest">ゲストブック / 방명록</a>
-      </nav>
-      <div class="lang">
-        <button id="lang-ja">日本語</button>
-        <button id="lang-ko">한국어</button>
-      </div>
-    </header>
+<div class="wrap" id="site">
+<header>
+  <div>
+    <div class="title" id="site-title">황제펭귄 먹이주기</div>
+    <div class="subtitle" id="site-sub">創作中心・気ままな日記</div>
+  </div>
+  <nav aria-label="main nav">
+    <a class="btn" href="#diary" data-section="diary">日記 / 일기</a>
+    <a class="btn" href="#gallery" data-section="gallery">ギャラリー / 갤러리</a>
+    <a class="btn" href="#links" data-section="links">リンク / 링크</a>
+    <a class="btn" href="#guest" data-section="guest">ゲストブック / 방명록</a>
+  </nav>
+  <div class="lang">
+    <button id="lang-ja">日本語</button>
+    <button id="lang-ko">한국어</button>
+  </div>
+</header>
 
-    <div class="grid">
-      <main>
-        <!-- diary -->
-        <section id="diary-section" class="card">
-          <h2 data-ja="日記" data-ko="일기">일기</h2>
-          <p id="diary-intro" data-ja="ここは気ままに書く場所です。創作メモや今日のことを残しておきます。" data-ko="여기는 마음 가는 대로 적는 공간입니다. 창작 메모나 오늘 있었던 일을 기록해요.">여기는 마음 가는 대로 적는 공간입니다. 창작 메모나 오늘 있었던 일을 기록해요.</p>
+<div class="grid">
+<main>
+  <!-- diary -->
+  <section id="diary-section" class="card">
+    <h2 data-ja="日記" data-ko="일기">일기</h2>
+    <p id="diary-intro" data-ja="ここは気ままに書く場所です。創作メモや今日のことを残しておきます。" data-ko="여기는 마음 가는 대로 적는 공간입니다. 창작 메모나 오늘 있었던 일을 기록해요.">여기는 마음 가는 대로 적는 공간입니다. 창작 메모나 오늘 있었던 일을 기록해요.</p>
 
-          <div class="card">
-            <form id="diary-form">
-              <input type="text" id="diary-title" placeholder="제목 / タイトル" style="width:100%;padding:8px;margin-bottom:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">
-              <textarea id="diary-body" rows="5" placeholder="내용을 입력하세요 / ここに書きます" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)"></textarea>
-              <div style="display:flex;gap:8px;margin-top:8px;justify-content:flex-end">
-                <button type="submit" class="btn">저장 / 保存</button>
-                <button type="button" id="diary-clear" class="btn">초기화 / クリア</button>
-              </div>
-            </form>
-          </div>
-
-          <ul class="diary-list" id="diary-list"></ul>
-        </section>
-
-        <!-- gallery -->
-        <section id="gallery-section" class="card" style="margin-top:16px">
-          <h2 data-ja="ギャラリー" data-ko="갤러리">갤러리</h2>
-          <p data-ja="세상살이 힘들다." data-ko="세상살이 힘들다.">세상살이 힘들다.</p>
-          <div class="gallery" id="gallery">
-            <a href="#img1" class="thumb"><img src="https://i.imgur.com/p6cVZVP.jpeg" alt="작품1"></a>
-            <a href="comic1.html" class="thumb"><img src="https://i.imgur.com/bqLumNV.jpeg" alt="작품2"></a>
-            <a href="#img3" class="thumb"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></a>
-          </div>
-          <!-- 모달 섹션 -->
-          <div id="img1" class="modal"><a href="#"><img src="https://i.imgur.com/p6cVZVP.jpeg" alt="작품1"></a></div>
-          <div id="comic1.html" class="modal"><a href="#"><img src="https://i.imgur.com/bqLumNV.jpeg" alt="sample"></a></div>
-          <div id="img3" class="modal"><a href="#"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></a></div>
-        </section>
-
-        <!-- links -->
-        <section id="links-section" class="card" style="margin-top:16px">
-          <h2 data-ja="リンク" data-ko="링크">링크</h2>
-          <p data-ja="相互リンク歓迎 / 링크 교환 환영" data-ko="상호 링크 환영">상호 링크 환영</p>
-          <div class="banners" id="banners">
-            <a class="banner" href="#">あなたのサイト / 네 사이트 1</a>
-            <a class="banner" href="#">친구의 사이트 2</a>
-          </div>
-        </section>
-
-        <!-- guestbook -->
-        <section id="guest-section" class="card" style="margin-top:16px">
-          <h2 data-ja="ゲストブック" data-ko="방명록">방명록</h2>
-          <form id="guest-form" style="margin-bottom:10px">
-            <input id="guest-name" placeholder="名前 / 이름" style="width:30%;padding:8px;margin-right:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">
-            <input id="guest-url" placeholder="(없으면 비워두기)" style="width:40%;padding:8px;margin-right:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">
-            <button class="btn" type="submit">등록 / 投稿</button>
-          </form>
-          <div class="guestbook-list" id="guestbook-list"></div>
-        </section>
-
-      </main>
-
-      <aside>
-        <div class="card">
-          <strong data-ja="プロフィール" data-ko="프로필">프로필</strong>
-          <p id="profile-text" data-ja="名前: チャムシュ / 二次創作: イナズマイレブン" data-ko="이름: 참슈 / 2차창작: 이나즈마 일레븐">이름: 참슈 / 2차창작: 이나즈마 일레븐</p>
+    <div class="card">
+      <form id="diary-form">
+        <input type="text" id="diary-title" placeholder="제목 / タイトル" style="width:100%;padding:8px;margin-bottom:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">
+        <textarea id="diary-body" rows="5" placeholder="내용을 입력하세요 / ここに書きます" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)"></textarea>
+        <div style="display:flex;gap:8px;margin-top:8px;justify-content:flex-end">
+          <button type="submit" class="btn">저장 / 保存</button>
+          <button type="button" id="diary-clear" class="btn">초기화 / クリア</button>
         </div>
-
-        <div class="card">
-          <strong data-ja="문의" data-ko="문의">문의</strong>
-          <p data-ja="連絡は@OwO___VV2で" data-ko="연락은 @OwO___VV2 로">연락은 @OwO___VV2 로</p>
-        </div>
-      </aside>
+      </form>
     </div>
 
-    <footer>
-      <div>© <span id="year"></span> 황제펭귄 먹이주기 / X계정이 너무 터지는 바람에 짜증나서 만들었습니다.</div>
-      <div style="margin-top:6px">데모 기능: 로컬 스토
+    <ul class="diary-list" id="diary-list"></ul>
+  </section>
+
+  <!-- gallery -->
+  <section id="gallery-section" class="card" style="margin-top:16px">
+    <h2 data-ja="ギャラリー" data-ko="갤러리">갤러리</h2>
+    <div class="gallery" id="gallery">
+      <a href="comic1.html" class="thumb"><img src="https://i.imgur.com/bqLumNV.jpeg" alt="작품1"></a>
+      <a href="#img2" class="thumb"><img src="https://i.imgur.com/p6cVZVP.jpeg" alt="작품2"></a>
+      <a href="#img3" class="thumb"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></a>
+    </div>
+    <div id="img2" class="modal"><a href="#"><img src="https://i.imgur.com/p6cVZVP.jpeg" alt="작품2"></a></div>
+    <div id="img3" class="modal"><a href="#"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></a></div>
+  </section>
+
+  <!-- links -->
+  <section id="links-section" class="card" style="margin-top:16px">
+    <h2 data-ja="リンク" data-ko="링크">링크</h2>
+    <div class="banners" id="banners">
+      <a class="banner" href="#">네 사이트 1</a>
+      <a class="banner" href="#">친구의 사이트 2</a>
+    </div>
+  </section>
+
+  <!-- guestbook -->
+  <section id="guest-section" class="card" style="margin-top:16px">
+    <h2 dat
