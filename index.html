@@ -156,7 +156,7 @@
     </div>
 
     <footer>
-      <div>© <span id="year"></span> 星屑アトリエ / 개인 홈페이지 템플릿 — 자유롭게 수정・재배포 OK</div>
+      <div>© <span id="year"></span> 황제펭귄 먹이주기 / 개인 홈페이지 템플릿 — 자유롭게 수정・재배포 OK</div>
       <div style="margin-top:6px">데모 기능: 로컬 스토리지에 방명록과 일기를 저장합니다. 서버가 없는 환경에서도 작동합니다.</div>
     </footer>
   </div>
@@ -173,8 +173,8 @@
         el.textContent = el.getAttribute('data-'+lang) || el.textContent;
       });
       // 사이트 타이틀 기본 언어 설정
-      if(lang==='ja'){document.getElementById('site-title').textContent='星屑アトリエ';}
-      else{document.getElementById('site-title').textContent='별屑 아틀리에'}
+      if(lang==='ja'){document.getElementById('site-title').textContent='황제펭귄 먹이주기';}
+      else{document.getElementById('site-title').textContent='황제펭귄 먹이주기'}
       localStorage.setItem('site-lang', lang);
     }
     document.getElementById('lang-ja').addEventListener('click', ()=>setLang('ja'));
