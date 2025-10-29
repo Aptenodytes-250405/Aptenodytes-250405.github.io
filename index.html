@@ -1,270 +1,261 @@
-{\rtf1\ansi\ansicpg949\cocoartf2865
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww15800\viewh13600\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>星屑アトリエ / 개인 홈페이지 템플릿</title>
+  <meta name="description" content="작고 레트로한 개인 홈페이지 템플릿 — 일기, 갤러리, 링크, 방명록 포함">
+  <style>
+    :root{
+      --bg:#0b0710;
+      --card:#0f1220;
+      --muted:#b7c0d6;
+      --accent:#9fb4ff;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0; background: radial-gradient(1000px 400px at 10% 10%, rgba(159,180,255,0.06), transparent), var(--bg);
+      color:var(--muted); -webkit-font-smoothing:antialiased; padding:32px; box-sizing:border-box;
+    }
+    .wrap{max-width:980px;margin:0 auto;}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+    .title{
+      background:linear-gradient(90deg,#fff2 0,#fff0 60%);
+      -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; font-size:28px;
+    }
+    .subtitle{font-size:12px;color:var(--muted);}
+    nav{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{background:var(--card); padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13px;border:1px solid rgba(255,255,255,0.03)}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    main{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:18px;border-radius:var(--radius);min-height:320px}
+    aside{position:sticky;top:32px;background:var(--card);padding:14px;border-radius:12px}
+    h2{color:var(--accent);margin:0 0 12px 0}
+    .card{background:var(--glass);padding:12px;border-radius:12px;margin-bottom:12px}
+    /* diary list */
+    .diary-list{list-style:none;padding:0;margin:0}
+    .diary-item{padding:10px;border-bottom:1px dashed rgba(255,255,255,0.03)}
+    .meta{font-size:12px;color:#9aa7d3}
+    /* gallery */
+    .gallery{display:flex;flex-wrap:wrap;gap:10px}
+    .thumb{width:calc(33.333% - 6.6px);border-radius:8px;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    /* links / banners */
+    .banners{display:flex;flex-wrap:wrap;gap:8px}
+    .banner{display:block;padding:6px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
+    /* guestbook */
+    .guestbook-list{max-height:200px;overflow:auto}
+    .guest-item{padding:8px;border-bottom:1px solid rgba(255,255,255,0.02)}
+    footer{margin-top:18px;font-size:12px;color:#8086b0}
+    /* language toggle */
+    .lang{margin-left:auto;display:flex;gap:6px}
+    .lang button{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:8px;color:var(--muted)}
+    /* responsive */
+    @media (max-width:860px){.grid{grid-template-columns:1fr} .thumb{width:calc(50% - 5px)}}
+    @media (max-width:480px){body{padding:16px}.title{font-size:20px}}
+  </style>
+</head>
+<body>
+  <div class="wrap" id="site">
+    <header>
+      <div>
+        <div class="title" id="site-title">星屑アトリエ</div>
+        <div class="subtitle" id="site-sub">創作中心・気ままな日記</div>
+      </div>
+      <nav aria-label="main nav">
+        <a class="btn" href="#diary" data-section="diary">日記 / 일기</a>
+        <a class="btn" href="#gallery" data-section="gallery">ギャラリー / 갤러리</a>
+        <a class="btn" href="#links" data-section="links">リンク / 링크</a>
+        <a class="btn" href="#guest" data-section="guest">ゲストブック / 방명록</a>
+      </nav>
+      <div class="lang">
+        <button id="lang-ja">日本語</button>
+        <button id="lang-ko">한국어</button>
+      </div>
+    </header>
 
-\f0\fs24 \cf0  <!doctype html>\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 <html lang="ja">\
-<head>\
-  <meta charset="utf-8">\
-  <meta name="viewport" content="width=device-width,initial-scale=1">\
-  <title>\uc0\u26143 \u23633 \u12450 \u12488 \u12522 \u12456  / \u44060 \u51064  \u54856 \u54168 \u51060 \u51648  \u53596 \u54540 \u47551 </title>\
-  <meta name="description" content="\uc0\u51089 \u44256  \u47112 \u53944 \u47196 \u54620  \u44060 \u51064  \u54856 \u54168 \u51060 \u51648  \u53596 \u54540 \u47551  \'97 \u51068 \u44592 , \u44068 \u47084 \u47532 , \u47553 \u53356 , \u48169 \u47749 \u47197  \u54252 \u54632 ">\
-  <style>\
-    :root\{\
-      --bg:#0b0710;\
-      --card:#0f1220;\
-      --muted:#b7c0d6;\
-      --accent:#9fb4ff;\
-      --glass: rgba(255,255,255,0.04);\
-      --radius:14px;\
-      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;\
-    \}\
-    html,body\{height:100%;\}\
-    body\{\
-      margin:0; background: radial-gradient(1000px 400px at 10% 10%, rgba(159,180,255,0.06), transparent), var(--bg);\
-      color:var(--muted); -webkit-font-smoothing:antialiased; padding:32px; box-sizing:border-box;\
-    \}\
-    .wrap\{max-width:980px;margin:0 auto;\}\
-    header\{display:flex;gap:16px;align-items:center;margin-bottom:20px\}\
-    .title\{\
-      background:linear-gradient(90deg,#fff2 0,#fff0 60%);\
-      -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; font-size:28px;\
-    \}\
-    .subtitle\{font-size:12px;color:var(--muted);\}\
-    nav\{display:flex;gap:8px;flex-wrap:wrap\}\
-    .btn\{background:var(--card); padding:8px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13px;border:1px solid rgba(255,255,255,0.03)\}\
-    .grid\{display:grid;grid-template-columns:1fr 320px;gap:18px\}\
-    main\{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); padding:18px;border-radius:var(--radius);min-height:320px\}\
-    aside\{position:sticky;top:32px;background:var(--card);padding:14px;border-radius:12px\}\
-    h2\{color:var(--accent);margin:0 0 12px 0\}\
-    .card\{background:var(--glass);padding:12px;border-radius:12px;margin-bottom:12px\}\
-    /* diary list */\
-    .diary-list\{list-style:none;padding:0;margin:0\}\
-    .diary-item\{padding:10px;border-bottom:1px dashed rgba(255,255,255,0.03)\}\
-    .meta\{font-size:12px;color:#9aa7d3\}\
-    /* gallery */\
-    .gallery\{display:flex;flex-wrap:wrap;gap:10px\}\
-    .thumb\{width:calc(33.333% - 6.6px);border-radius:8px;overflow:hidden\}\
-    .thumb img\{width:100%;height:100%;object-fit:cover;display:block\}\
-    /* links / banners */\
-    .banners\{display:flex;flex-wrap:wrap;gap:8px\}\
-    .banner\{display:block;padding:6px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px\}\
-    /* guestbook */\
-    .guestbook-list\{max-height:200px;overflow:auto\}\
-    .guest-item\{padding:8px;border-bottom:1px solid rgba(255,255,255,0.02)\}\
-    footer\{margin-top:18px;font-size:12px;color:#8086b0\}\
-    /* language toggle */\
-    .lang\{margin-left:auto;display:flex;gap:6px\}\
-    .lang button\{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:8px;color:var(--muted)\}\
-    /* responsive */\
-    @media (max-width:860px)\{.grid\{grid-template-columns:1fr\} .thumb\{width:calc(50% - 5px)\}\}\
-    @media (max-width:480px)\{body\{padding:16px\}.title\{font-size:20px\}\}\
-  </style>\
-</head>\
-<body>\
-  <div class="wrap" id="site">\
-    <header>\
-      <div>\
-        <div class="title" id="site-title">\uc0\u26143 \u23633 \u12450 \u12488 \u12522 \u12456 </div>\
-        <div class="subtitle" id="site-sub">\uc0\u21109 \u20316 \u20013 \u24515 \u12539 \u27671 \u12414 \u12414 \u12394 \u26085 \u35352 </div>\
-      </div>\
-      <nav aria-label="main nav">\
-        <a class="btn" href="#diary" data-section="diary">\uc0\u26085 \u35352  / \u51068 \u44592 </a>\
-        <a class="btn" href="#gallery" data-section="gallery">\uc0\u12462 \u12515 \u12521 \u12522 \u12540  / \u44068 \u47084 \u47532 </a>\
-        <a class="btn" href="#links" data-section="links">\uc0\u12522 \u12531 \u12463  / \u47553 \u53356 </a>\
-        <a class="btn" href="#guest" data-section="guest">\uc0\u12466 \u12473 \u12488 \u12502 \u12483 \u12463  / \u48169 \u47749 \u47197 </a>\
-      </nav>\
-      <div class="lang">\
-        <button id="lang-ja">\uc0\u26085 \u26412 \u35486 </button>\
-        <button id="lang-ko">\uc0\u54620 \u44397 \u50612 </button>\
-      </div>\
-    </header>\
-\
-    <div class="grid">\
-      <main>\
-        <!-- diary -->\
-        <section id="diary-section" class="card">\
-          <h2 data-ja="\uc0\u26085 \u35352 " data-ko="\u51068 \u44592 ">\u26085 \u35352 </h2>\
-          <p id="diary-intro" data-ja="\uc0\u12371 \u12371 \u12399 \u27671 \u12414 \u12414 \u12395 \u26360 \u12367 \u22580 \u25152 \u12391 \u12377 \u12290 \u21109 \u20316 \u12513 \u12514 \u12420 \u20170 \u26085 \u12398 \u12371 \u12392 \u12434 \u27531 \u12375 \u12390 \u12362 \u12365 \u12414 \u12377 \u12290 " data-ko="\u50668 \u44592 \u45716  \u47560 \u51020  \u44032 \u45716  \u45824 \u47196  \u51201 \u45716  \u44277 \u44036 \u51077 \u45768 \u45796 . \u52285 \u51089  \u47700 \u47784 \u45208  \u50724 \u45720  \u51080 \u50632 \u45912  \u51068 \u51012  \u44592 \u47197 \u54644 \u50836 .">\u50668 \u44592 \u45716  \u47560 \u51020  \u44032 \u45716  \u45824 \u47196  \u51201 \u45716  \u44277 \u44036 \u51077 \u45768 \u45796 . \u52285 \u51089  \u47700 \u47784 \u45208  \u50724 \u45720  \u51080 \u50632 \u45912  \u51068 \u51012  \u44592 \u47197 \u54644 \u50836 .</p>\
-\
-          <div class="card">\
-            <form id="diary-form">\
-              <input type="text" id="diary-title" placeholder="\uc0\u51228 \u47785  / \u12479 \u12452 \u12488 \u12523 " style="width:100%;padding:8px;margin-bottom:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">\
-              <textarea id="diary-body" rows="5" placeholder="\uc0\u45236 \u50857 \u51012  \u51077 \u47141 \u54616 \u49464 \u50836  / \u12371 \u12371 \u12395 \u26360 \u12365 \u12414 \u12377 " style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)"></textarea>\
-              <div style="display:flex;gap:8px;margin-top:8px;justify-content:flex-end">\
-                <button type="submit" class="btn">\uc0\u51200 \u51109  / \u20445 \u23384 </button>\
-                <button type="button" id="diary-clear" class="btn">\uc0\u52488 \u44592 \u54868  / \u12463 \u12522 \u12450 </button>\
-              </div>\
-            </form>\
-          </div>\
-\
-          <ul class="diary-list" id="diary-list">\
-            <!-- diary entries injected here -->\
-          </ul>\
-        </section>\
-\
-        <!-- gallery -->\
-        <section id="gallery-section" class="card" style="margin-top:16px">\
-          <h2 data-ja="\uc0\u12462 \u12515 \u12521 \u12522 \u12540 " data-ko="\u44068 \u47084 \u47532 ">\u44068 \u47084 \u47532 </h2>\
-          <p data-ja="\uc0\u50629 \u47196 \u46300  \u45824 \u49888  \u50808 \u48512  \u47553 \u53356 \u45208  \u51649 \u51217  \u51060 \u48120 \u51648  \u51452 \u49548 \u47484  \u45347 \u50612  \u49324 \u50857 \u54616 \u47732  \u46121 \u45768 \u45796 ." data-ko="\u50629 \u47196 \u46300  \u45824 \u49888  \u50808 \u48512  \u47553 \u53356 \u45208  \u51649 \u51217  \u51060 \u48120 \u51648  \u51452 \u49548 \u47484  \u45347 \u50612  \u49324 \u50857 \u54616 \u47732  \u46121 \u45768 \u45796 .">\u50629 \u47196 \u46300  \u45824 \u49888  \u50808 \u48512  \u47553 \u53356 \u45208  \u51649 \u51217  \u51060 \u48120 \u51648  \u51452 \u49548 \u47484  \u45347 \u50612  \u49324 \u50857 \u54616 \u47732  \u46121 \u45768 \u45796 .</p>\
-          <div class="gallery" id="gallery">\
-            <!-- thumbs -->\
-            <div class="thumb"><img src="https://placehold.co/400x300?text=Sample+1" alt="sample"></div>\
-            <div class="thumb"><img src="https://placehold.co/400x300?text=Sample+2" alt="sample"></div>\
-            <div class="thumb"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></div>\
-          </div>\
-        </section>\
-\
-        <!-- links -->\
-        <section id="links-section" class="card" style="margin-top:16px">\
-          <h2 data-ja="\uc0\u12522 \u12531 \u12463 " data-ko="\u47553 \u53356 ">\u47553 \u53356 </h2>\
-          <p data-ja="\uc0\u30456 \u20114 \u12522 \u12531 \u12463 \u27475 \u36814  / \u47553 \u53356  \u44368 \u54872  \u54872 \u50689 " data-ko="\u49345 \u54840  \u47553 \u53356  \u54872 \u50689 ">\u49345 \u54840  \u47553 \u53356  \u54872 \u50689 </p>\
-          <div class="banners" id="banners">\
-            <a class="banner" href="#">\uc0\u12354 \u12394 \u12383 \u12398 \u12469 \u12452 \u12488  / \u45348  \u49324 \u51060 \u53944  1</a>\
-            <a class="banner" href="#">\uc0\u52828 \u44396 \u51032  \u49324 \u51060 \u53944  2</a>\
-          </div>\
-        </section>\
-\
-        <!-- guestbook -->\
-        <section id="guest-section" class="card" style="margin-top:16px">\
-          <h2 data-ja="\uc0\u12466 \u12473 \u12488 \u12502 \u12483 \u12463 " data-ko="\u48169 \u47749 \u47197 ">\u48169 \u47749 \u47197 </h2>\
-          <form id="guest-form" style="margin-bottom:10px">\
-            <input id="guest-name" placeholder="\uc0\u21517 \u21069  / \u51060 \u47492 " style="width:30%;padding:8px;margin-right:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">\
-            <input id="guest-url" placeholder="(\uc0\u50630 \u51004 \u47732  \u48708 \u50892 \u46160 \u44592 )" style="width:40%;padding:8px;margin-right:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">\
-            <button class="btn" type="submit">\uc0\u46321 \u47197  / \u25237 \u31295 </button>\
-          </form>\
-          <div class="guestbook-list" id="guestbook-list">\
-            <!-- guest entries -->\
-          </div>\
-        </section>\
-\
-      </main>\
-\
-      <aside>\
-        <div class="card">\
-          <strong data-ja="\uc0\u12503 \u12525 \u12501 \u12451 \u12540 \u12523 " data-ko="\u54532 \u47196 \u54596 ">\u54532 \u47196 \u54596 </strong>\
-          <p id="profile-text" data-ja="\uc0\u21517 \u21069 : 404 / \u21109 \u20316 \u12472 \u12515 \u12531 \u12523 : \u12458 \u12522 \u12472 \u12490 \u12523 \u12539 \u20108 \u27425 \u21109 \u20316 " data-ko="\u51060 \u47492 : 404 / \u52285 \u51089  \u51109 \u47476 : \u50724 \u47532 \u51648 \u45328 \u12539 2\u52264 \u52285 \u51089 ">\u51060 \u47492 : 404 / \u52285 \u51089  \u51109 \u47476 : \u50724 \u47532 \u51648 \u45328 \u12539 2\u52264 \u52285 \u51089 </p>\
-        </div>\
-\
-        <div class="card">\
-          <strong data-ja="\uc0\u48169 \u47928 \u51088 " data-ko="\u48169 \u47928 \u51088 ">\u48169 \u47928 \u51088 </strong>\
-          <p id="visitor-count">--</p>\
-        </div>\
-\
-        <div class="card">\
-          <strong data-ja="\uc0\u47928 \u51032 " data-ko="\u47928 \u51032 ">\u47928 \u51032 </strong>\
-          <p data-ja="\uc0\u36899 \u32097 \u12399 @yourhandle\u12414 \u12391 " data-ko="\u50672 \u46973 \u51008  @yourhandle \u47196 ">\u50672 \u46973 \u51008  @yourhandle \u47196 </p>\
-        </div>\
-\
-      </aside>\
-    </div>\
-\
-    <footer>\
-      <div>\'a9 <span id="year"></span> \uc0\u26143 \u23633 \u12450 \u12488 \u12522 \u12456  / \u44060 \u51064  \u54856 \u54168 \u51060 \u51648  \u53596 \u54540 \u47551  \'97 \u51088 \u50976 \u47213 \u44172  \u49688 \u51221 \u12539 \u51116 \u48176 \u54252  OK</div>\
-      <div style="margin-top:6px">\uc0\u45936 \u47784  \u44592 \u45733 : \u47196 \u52972  \u49828 \u53664 \u47532 \u51648 \u50640  \u48169 \u47749 \u47197 \u44284  \u51068 \u44592 \u47484  \u51200 \u51109 \u54633 \u45768 \u45796 . \u49436 \u48260 \u44032  \u50630 \u45716  \u54872 \u44221 \u50640 \u49436 \u46020  \u51089 \u46041 \u54633 \u45768 \u45796 .</div>\
-    </footer>\
-  </div>\
-\
-  <script>\
-    // \uc0\u44592 \u48376  \u49444 \u51221 \
-    document.getElementById('year').textContent = new Date().getFullYear();\
-\
-    // \uc0\u50616 \u50612  \u53664 \u44544 \
-    function setLang(lang)\{\
-      document.documentElement.lang = (lang==='ja')? 'ja' : 'ko';\
-      document.querySelectorAll('[data-ja]').forEach(el=>\{\
-        el.style.display = (lang==='ja')? '':''; // keep\
-        el.textContent = el.getAttribute('data-'+lang) || el.textContent;\
-      \});\
-      // \uc0\u49324 \u51060 \u53944  \u53440 \u51060 \u53952  \u44592 \u48376  \u50616 \u50612  \u49444 \u51221 \
-      if(lang==='ja')\{document.getElementById('site-title').textContent='\uc0\u26143 \u23633 \u12450 \u12488 \u12522 \u12456 ';\}\
-      else\{document.getElementById('site-title').textContent='\uc0\u48324 \u23633  \u50500 \u53952 \u47532 \u50640 '\}\
-      localStorage.setItem('site-lang', lang);\
-    \}\
-    document.getElementById('lang-ja').addEventListener('click', ()=>setLang('ja'));\
-    document.getElementById('lang-ko').addEventListener('click', ()=>setLang('ko'));\
-    const savedLang = localStorage.getItem('site-lang') || 'ja';\
-    setLang(savedLang);\
-\
-    // \uc0\u48169 \u47928 \u51088  \u52852 \u50868 \u53944  (\u44036 \u45800 \u54620  \u47196 \u52972  \u52852 \u50868 \u53944 )\
-    let visits = parseInt(localStorage.getItem('visitor-count')||'0');\
-    visits++;\
-    localStorage.setItem('visitor-count', visits);\
-    document.getElementById('visitor-count').textContent = visits + ' \uc0\u48169 \u47928 ';\
-\
-    // \uc0\u45796 \u51060 \u50612 \u47532  \u51200 \u51109  (\u47196 \u52972  \u49828 \u53664 \u47532 \u51648  \u44592 \u48152 )\
-    const diaryForm = document.getElementById('diary-form');\
-    const diaryList = document.getElementById('diary-list');\
-    function loadDiary()\{\
-      diaryList.innerHTML='';\
-      const entries = JSON.parse(localStorage.getItem('diary-entries')||'[]');\
-      entries.reverse().forEach(e=>\{\
-        const li = document.createElement('li'); li.className='diary-item';\
-        li.innerHTML = `<div style="display:flex;justify-content:space-between"><strong>$\{escapeHtml(e.title||'(no title)')\}</strong><span class="meta">$\{e.date\}</span></div><div style="margin-top:6px;color:var(--muted)">$\{escapeHtml(e.body)\}</div>`;\
-        diaryList.appendChild(li);\
-      \});\
-    \}\
-    diaryForm.addEventListener('submit', (ev)=>\{\
-      ev.preventDefault();\
-      const title = document.getElementById('diary-title').value.trim();\
-      const body = document.getElementById('diary-body').value.trim();\
-      if(!body)\{alert('\uc0\u45236 \u50857 \u51012  \u51077 \u47141 \u54616 \u49464 \u50836  / \u20309 \u12363 \u26360 \u12356 \u12390 \u12367 \u12384 \u12373 \u12356 ');return\}\
-      const entries = JSON.parse(localStorage.getItem('diary-entries')||'[]');\
-      entries.push(\{title,body,date:new Date().toLocaleString()\});\
-      localStorage.setItem('diary-entries', JSON.stringify(entries));\
-      document.getElementById('diary-title').value=''; document.getElementById('diary-body').value='';\
-      loadDiary();\
-    \});\
-    document.getElementById('diary-clear').addEventListener('click', ()=>\{\
-      if(confirm('\uc0\u51221 \u47568 \u47196  \u51068 \u44592  \u51204 \u52404 \u47484  \u49325 \u51228 \u54624 \u44620 \u50836 ? \u47196 \u52972  \u49828 \u53664 \u47532 \u51648 \u50640 \u49436  \u51648 \u50892 \u51665 \u45768 \u45796 .'))\{localStorage.removeItem('diary-entries');loadDiary();\}\
-    \});\
-    loadDiary();\
-\
-    // \uc0\u48169 \u47749 \u47197 \
-    const guestForm = document.getElementById('guest-form');\
-    const guestList = document.getElementById('guestbook-list');\
-    function loadGuests()\{\
-      guestList.innerHTML='';\
-      const guests = JSON.parse(localStorage.getItem('guests')||'[]');\
-      guests.reverse().forEach(g=>\{\
-        const div = document.createElement('div'); div.className='guest-item';\
-        div.innerHTML = `<div style="display:flex;justify-content:space-between"><strong>$\{escapeHtml(g.name||'Anon')\}</strong><span class="meta">$\{g.date\}</span></div><div style="margin-top:6px"><a href="$\{escapeAttr(g.url||'#')\}">$\{escapeHtml(g.url||'')\}</a></div>`;\
-        guestList.appendChild(div);\
-      \});\
-    \}\
-    guestForm.addEventListener('submit', (ev)=>\{\
-      ev.preventDefault();\
-      const name = document.getElementById('guest-name').value.trim();\
-      const url = document.getElementById('guest-url').value.trim();\
-      if(!name)\{alert('\uc0\u51060 \u47492 \u51012  \u51077 \u47141 \u54644  \u51452 \u49464 \u50836  / \u21517 \u21069 \u12434 \u20837 \u12428 \u12390 \u12367 \u12384 \u12373 \u12356 ');return\}\
-      const guests = JSON.parse(localStorage.getItem('guests')||'[]');\
-      guests.push(\{name,url,date:new Date().toLocaleString()\});\
-      localStorage.setItem('guests', JSON.stringify(guests));\
-      document.getElementById('guest-name').value=''; document.getElementById('guest-url').value='';\
-      loadGuests();\
-    \});\
-    loadGuests();\
-\
-    // \uc0\u44036 \u45800 \u54620  XSS \u48169 \u51648 \
-    function escapeHtml(s)\{ if(!s) return ''; return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); \}\
-    function escapeAttr(s)\{ if(!s) return ''; return s.replaceAll('"','%22').replaceAll('<',''); \}\
-\
-    // \uc0\u49465 \u49496 \u51004 \u47196  \u49828 \u53356 \u47204  \u51060 \u46041 \
-    document.querySelectorAll('a[data-section]').forEach(a=>\{\
-      a.addEventListener('click', (e)=>\{\
-        e.preventDefault(); const sec = a.getAttribute('data-section');\
-        document.getElementById(sec+'-section').scrollIntoView(\{behavior:'smooth'\});\
-      \});\
-    \});\
-\
-    // \uc0\u44592 \u48376  \u45936 \u47784  \u51060 \u48120 \u51648  \u44368 \u52404  \u48169 \u48277  \u50504 \u45236  (\u53080 \u49556  \u52636 \u47141 )\
-    console.log('\uc0\u53596 \u54540 \u47551 : gallery \u45236  \u51060 \u48120 \u51648 \u45716  \u50808 \u48512  URL\u51012  \u49324 \u50857 \u54616 \u49464 \u50836 . \u48176 \u45320 \u45716  #banners \u50836 \u49548 \u50640  <a>\u47196  \u52628 \u44032 \u54633 \u45768 \u45796 . \u48176 \u54252 : Neocities, GitHub Pages \u52628 \u52380 .');\
-\
-  </script>\
-</body>\
-</html>\
-}
+    <div class="grid">
+      <main>
+        <!-- diary -->
+        <section id="diary-section" class="card">
+          <h2 data-ja="日記" data-ko="일기">日記</h2>
+          <p id="diary-intro" data-ja="ここは気ままに書く場所です。創作メモや今日のことを残しておきます。" data-ko="여기는 마음 가는 대로 적는 공간입니다. 창작 메모나 오늘 있었던 일을 기록해요.">여기는 마음 가는 대로 적는 공간입니다. 창작 메모나 오늘 있었던 일을 기록해요.</p>
+
+          <div class="card">
+            <form id="diary-form">
+              <input type="text" id="diary-title" placeholder="제목 / タイトル" style="width:100%;padding:8px;margin-bottom:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">
+              <textarea id="diary-body" rows="5" placeholder="내용을 입력하세요 / ここに書きます" style="width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)"></textarea>
+              <div style="display:flex;gap:8px;margin-top:8px;justify-content:flex-end">
+                <button type="submit" class="btn">저장 / 保存</button>
+                <button type="button" id="diary-clear" class="btn">초기화 / クリア</button>
+              </div>
+            </form>
+          </div>
+
+          <ul class="diary-list" id="diary-list">
+            <!-- diary entries injected here -->
+          </ul>
+        </section>
+
+        <!-- gallery -->
+        <section id="gallery-section" class="card" style="margin-top:16px">
+          <h2 data-ja="ギャラリー" data-ko="갤러리">갤러리</h2>
+          <p data-ja="업로드 대신 외부 링크나 직접 이미지 주소를 넣어 사용하면 됩니다." data-ko="업로드 대신 외부 링크나 직접 이미지 주소를 넣어 사용하면 됩니다.">업로드 대신 외부 링크나 직접 이미지 주소를 넣어 사용하면 됩니다.</p>
+          <div class="gallery" id="gallery">
+            <!-- thumbs -->
+            <div class="thumb"><img src="https://placehold.co/400x300?text=Sample+1" alt="sample"></div>
+            <div class="thumb"><img src="https://placehold.co/400x300?text=Sample+2" alt="sample"></div>
+            <div class="thumb"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></div>
+          </div>
+        </section>
+
+        <!-- links -->
+        <section id="links-section" class="card" style="margin-top:16px">
+          <h2 data-ja="リンク" data-ko="링크">링크</h2>
+          <p data-ja="相互リンク歓迎 / 링크 교환 환영" data-ko="상호 링크 환영">상호 링크 환영</p>
+          <div class="banners" id="banners">
+            <a class="banner" href="#">あなたのサイト / 네 사이트 1</a>
+            <a class="banner" href="#">친구의 사이트 2</a>
+          </div>
+        </section>
+
+        <!-- guestbook -->
+        <section id="guest-section" class="card" style="margin-top:16px">
+          <h2 data-ja="ゲストブック" data-ko="방명록">방명록</h2>
+          <form id="guest-form" style="margin-bottom:10px">
+            <input id="guest-name" placeholder="名前 / 이름" style="width:30%;padding:8px;margin-right:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">
+            <input id="guest-url" placeholder="(없으면 비워두기)" style="width:40%;padding:8px;margin-right:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">
+            <button class="btn" type="submit">등록 / 投稿</button>
+          </form>
+          <div class="guestbook-list" id="guestbook-list">
+            <!-- guest entries -->
+          </div>
+        </section>
+
+      </main>
+
+      <aside>
+        <div class="card">
+          <strong data-ja="プロフィール" data-ko="프로필">프로필</strong>
+          <p id="profile-text" data-ja="名前: 404 / 創作ジャンル: オリジナル・二次創作" data-ko="이름: 404 / 창작 장르: 오리지널・2차창작">이름: 404 / 창작 장르: 오리지널・2차창작</p>
+        </div>
+
+        <div class="card">
+          <strong data-ja="방문자" data-ko="방문자">방문자</strong>
+          <p id="visitor-count">--</p>
+        </div>
+
+        <div class="card">
+          <strong data-ja="문의" data-ko="문의">문의</strong>
+          <p data-ja="連絡は@yourhandleまで" data-ko="연락은 @yourhandle 로">연락은 @yourhandle 로</p>
+        </div>
+
+      </aside>
+    </div>
+
+    <footer>
+      <div>© <span id="year"></span> 星屑アトリエ / 개인 홈페이지 템플릿 — 자유롭게 수정・재배포 OK</div>
+      <div style="margin-top:6px">데모 기능: 로컬 스토리지에 방명록과 일기를 저장합니다. 서버가 없는 환경에서도 작동합니다.</div>
+    </footer>
+  </div>
+
+  <script>
+    // 기본 설정
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 언어 토글
+    function setLang(lang){
+      document.documentElement.lang = (lang==='ja')? 'ja' : 'ko';
+      document.querySelectorAll('[data-ja]').forEach(el=>{
+        el.style.display = (lang==='ja')? '':''; // keep
+        el.textContent = el.getAttribute('data-'+lang) || el.textContent;
+      });
+      // 사이트 타이틀 기본 언어 설정
+      if(lang==='ja'){document.getElementById('site-title').textContent='星屑アトリエ';}
+      else{document.getElementById('site-title').textContent='별屑 아틀리에'}
+      localStorage.setItem('site-lang', lang);
+    }
+    document.getElementById('lang-ja').addEventListener('click', ()=>setLang('ja'));
+    document.getElementById('lang-ko').addEventListener('click', ()=>setLang('ko'));
+    const savedLang = localStorage.getItem('site-lang') || 'ja';
+    setLang(savedLang);
+
+    // 방문자 카운트 (간단한 로컬 카운트)
+    let visits = parseInt(localStorage.getItem('visitor-count')||'0');
+    visits++;
+    localStorage.setItem('visitor-count', visits);
+    document.getElementById('visitor-count').textContent = visits + ' 방문';
+
+    // 다이어리 저장 (로컬 스토리지 기반)
+    const diaryForm = document.getElementById('diary-form');
+    const diaryList = document.getElementById('diary-list');
+    function loadDiary(){
+      diaryList.innerHTML='';
+      const entries = JSON.parse(localStorage.getItem('diary-entries')||'[]');
+      entries.reverse().forEach(e=>{
+        const li = document.createElement('li'); li.className='diary-item';
+        li.innerHTML = `<div style="display:flex;justify-content:space-between"><strong>${escapeHtml(e.title||'(no title)')}</strong><span class="meta">${e.date}</span></div><div style="margin-top:6px;color:var(--muted)">${escapeHtml(e.body)}</div>`;
+        diaryList.appendChild(li);
+      });
+    }
+    diaryForm.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const title = document.getElementById('diary-title').value.trim();
+      const body = document.getElementById('diary-body').value.trim();
+      if(!body){alert('내용을 입력하세요 / 何か書いてください');return}
+      const entries = JSON.parse(localStorage.getItem('diary-entries')||'[]');
+      entries.push({title,body,date:new Date().toLocaleString()});
+      localStorage.setItem('diary-entries', JSON.stringify(entries));
+      document.getElementById('diary-title').value=''; document.getElementById('diary-body').value='';
+      loadDiary();
+    });
+    document.getElementById('diary-clear').addEventListener('click', ()=>{
+      if(confirm('정말로 일기 전체를 삭제할까요? 로컬 스토리지에서 지워집니다.')){localStorage.removeItem('diary-entries');loadDiary();}
+    });
+    loadDiary();
+
+    // 방명록
+    const guestForm = document.getElementById('guest-form');
+    const guestList = document.getElementById('guestbook-list');
+    function loadGuests(){
+      guestList.innerHTML='';
+      const guests = JSON.parse(localStorage.getItem('guests')||'[]');
+      guests.reverse().forEach(g=>{
+        const div = document.createElement('div'); div.className='guest-item';
+        div.innerHTML = `<div style="display:flex;justify-content:space-between"><strong>${escapeHtml(g.name||'Anon')}</strong><span class="meta">${g.date}</span></div><div style="margin-top:6px"><a href="${escapeAttr(g.url||'#')}">${escapeHtml(g.url||'')}</a></div>`;
+        guestList.appendChild(div);
+      });
+    }
+    guestForm.addEventListener('submit', (ev)=>{
+      ev.preventDefault();
+      const name = document.getElementById('guest-name').value.trim();
+      const url = document.getElementById('guest-url').value.trim();
+      if(!name){alert('이름을 입력해 주세요 / 名前を入れてください');return}
+      const guests = JSON.parse(localStorage.getItem('guests')||'[]');
+      guests.push({name,url,date:new Date().toLocaleString()});
+      localStorage.setItem('guests', JSON.stringify(guests));
+      document.getElementById('guest-name').value=''; document.getElementById('guest-url').value='';
+      loadGuests();
+    });
+    loadGuests();
+
+    // 간단한 XSS 방지
+    function escapeHtml(s){ if(!s) return ''; return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
+    function escapeAttr(s){ if(!s) return ''; return s.replaceAll('"','%22').replaceAll('<',''); }
+
+    // 섹션으로 스크롤 이동
+    document.querySelectorAll('a[data-section]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        e.preventDefault(); const sec = a.getAttribute('data-section');
+        document.getElementById(sec+'-section').scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // 기본 데모 이미지 교체 방법 안내 (콘솔 출력)
+    console.log('템플릿: gallery 내 이미지는 외부 URL을 사용하세요. 배너는 #banners 요소에 <a>로 추가합니다. 배포: Neocities, GitHub Pages 추천.');
+
+  </script>
+</body>
+</html>
