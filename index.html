@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>황제펭귄 먹이주기 / 개인 홈페이지 템플릿</title>
+  <title>황제펭귄 먹이주기 / 개인 홈페이지</title>
   <meta name="description" content="개인 홈페이지 — 일기, 갤러리, 링크, 방명록 포함">
   <style>
     :root{
@@ -21,7 +21,7 @@
       color:var(--muted); -webkit-font-smoothing:antialiased; padding:32px; box-sizing:border-box;
     }
     .wrap{max-width:980px;margin:0 auto;}
-    header{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+    header{display:flex;gap:16px;align-items:center;margin-bottom:20px; flex-wrap:wrap;}
     .title{
       background:linear-gradient(90deg,#fff2 0,#fff0 60%);
       -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; font-size:28px;
@@ -40,43 +40,37 @@
     .meta{font-size:12px;color:#9aa7d3}
     /* gallery */
     .gallery{display:flex;flex-wrap:wrap;gap:10px}
-.thumb {
-  width: 200px;   /* 가로 길이 */
-  height: 150px;  /* 세로 길이 */
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .thumb {
+      width: 200px;
+      height: 150px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
     /* 클릭 시 원본 이미지 팝업용 모달 */
-.modal {
-  display: none;          /* 기본 숨김 */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.modal:target {
-  display: flex;
-}
-
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+    .modal:target { display: flex; }
     /* links / banners */
     .banners{display:flex;flex-wrap:wrap;gap:8px}
     .banner{display:block;padding:6px;border-radius:8px;background:rgba(255,255,255,0.02);font-size:13px}
@@ -115,7 +109,7 @@
       <main>
         <!-- diary -->
         <section id="diary-section" class="card">
-          <h2 data-ja="日記" data-ko="일기">日記</h2>
+          <h2 data-ja="日記" data-ko="일기">일기</h2>
           <p id="diary-intro" data-ja="ここは気ままに書く場所です。創作メモや今日のことを残しておきます。" data-ko="여기는 마음 가는 대로 적는 공간입니다. 창작 메모나 오늘 있었던 일을 기록해요.">여기는 마음 가는 대로 적는 공간입니다. 창작 메모나 오늘 있었던 일을 기록해요.</p>
 
           <div class="card">
@@ -129,9 +123,7 @@
             </form>
           </div>
 
-          <ul class="diary-list" id="diary-list">
-            <!-- diary entries injected here -->
-          </ul>
+          <ul class="diary-list" id="diary-list"></ul>
         </section>
 
         <!-- gallery -->
@@ -139,19 +131,14 @@
           <h2 data-ja="ギャラリー" data-ko="갤러리">갤러리</h2>
           <p data-ja="세상살이 힘들다." data-ko="세상살이 힘들다.">세상살이 힘들다.</p>
           <div class="gallery" id="gallery">
-
-  <a href="#img1" class="thumb"><img src="https://i.imgur.com/p6cVZVP.jpeg" alt="작품1"></a>
- <a href="comic1.html" class="thumb">
-    <img src="https://i.imgur.com/bqLumNV.jpeg" alt="작품2">
-  </a>
-  <a href="#img3" class="thumb"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></a>
-</div>
-
-<!-- 모달 섹션 -->
-<div id="img1" class="modal"><a href="#"><img src="https://i.imgur.com/p6cVZVP.jpeg" alt="작품1"></a></div>
-<div id="comic1.html" class="modal"><a href="#"><img src="https://i.imgur.com/bqLumNV.jpeg" alt="sample"></a></div>
-<div id="img3" class="modal"><a href="#"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></a></div>
-
+            <a href="#img1" class="thumb"><img src="https://i.imgur.com/p6cVZVP.jpeg" alt="작품1"></a>
+            <a href="comic1.html" class="thumb"><img src="https://i.imgur.com/bqLumNV.jpeg" alt="작품2"></a>
+            <a href="#img3" class="thumb"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></a>
+          </div>
+          <!-- 모달 섹션 -->
+          <div id="img1" class="modal"><a href="#"><img src="https://i.imgur.com/p6cVZVP.jpeg" alt="작품1"></a></div>
+          <div id="comic1.html" class="modal"><a href="#"><img src="https://i.imgur.com/bqLumNV.jpeg" alt="sample"></a></div>
+          <div id="img3" class="modal"><a href="#"><img src="https://placehold.co/400x300?text=Sample+3" alt="sample"></a></div>
         </section>
 
         <!-- links -->
@@ -172,9 +159,7 @@
             <input id="guest-url" placeholder="(없으면 비워두기)" style="width:40%;padding:8px;margin-right:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--muted)">
             <button class="btn" type="submit">등록 / 投稿</button>
           </form>
-          <div class="guestbook-list" id="guestbook-list">
-            <!-- guest entries -->
-          </div>
+          <div class="guestbook-list" id="guestbook-list"></div>
         </section>
 
       </main>
@@ -189,105 +174,9 @@
           <strong data-ja="문의" data-ko="문의">문의</strong>
           <p data-ja="連絡は@OwO___VV2で" data-ko="연락은 @OwO___VV2 로">연락은 @OwO___VV2 로</p>
         </div>
-
       </aside>
     </div>
 
     <footer>
-      <div>© <span id="year"></span> 황제펭귄 먹이주기 / X계정이 너무 터지는 바람에 짜증나서 만들었습니다. </div>
-      <div style="margin-top:6px">데모 기능: 로컬 스토리지에 방명록과 일기를 저장합니다. 서버가 없는 환경에서도 작동합니다. 현재 공사 및 테스트 중</div>
-    </footer>
-  </div>
-
-  <script>
-    // 기본 설정
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // 언어 토글
-    function setLang(lang){
-      document.documentElement.lang = (lang==='ja')? 'ja' : 'ko';
-      document.querySelectorAll('[data-ja]').forEach(el=>{
-        el.style.display = (lang==='ja')? '':''; // keep
-        el.textContent = el.getAttribute('data-'+lang) || el.textContent;
-      });
-      // 사이트 타이틀 기본 언어 설정
-      if(lang==='ja'){document.getElementById('site-title').textContent='황제펭귄 먹이주기';}
-      else{document.getElementById('site-title').textContent='황제펭귄 먹이주기'}
-      localStorage.setItem('site-lang', lang);
-    }
-    document.getElementById('lang-ja').addEventListener('click', ()=>setLang('ja'));
-    document.getElementById('lang-ko').addEventListener('click', ()=>setLang('ko'));
-    const savedLang = localStorage.getItem('site-lang') || 'ja';
-    setLang(savedLang);
-    
-    // 다이어리 저장 (로컬 스토리지 기반)
-    const diaryForm = document.getElementById('diary-form');
-    const diaryList = document.getElementById('diary-list');
-    function loadDiary(){
-      diaryList.innerHTML='';
-      const entries = JSON.parse(localStorage.getItem('diary-entries')||'[]');
-      entries.reverse().forEach(e=>{
-        const li = document.createElement('li'); li.className='diary-item';
-        li.innerHTML = `<div style="display:flex;justify-content:space-between"><strong>${escapeHtml(e.title||'(no title)')}</strong><span class="meta">${e.date}</span></div><div style="margin-top:6px;color:var(--muted)">${escapeHtml(e.body)}</div>`;
-        diaryList.appendChild(li);
-      });
-    }
-    diaryForm.addEventListener('submit', (ev)=>{
-      ev.preventDefault();
-      const title = document.getElementById('diary-title').value.trim();
-      const body = document.getElementById('diary-body').value.trim();
-      if(!body){alert('내용을 입력하세요 / 何か書いてください');return}
-      const entries = JSON.parse(localStorage.getItem('diary-entries')||'[]');
-      entries.push({title,body,date:new Date().toLocaleString()});
-      localStorage.setItem('diary-entries', JSON.stringify(entries));
-      document.getElementById('diary-title').value=''; document.getElementById('diary-body').value='';
-      loadDiary();
-    });
-    document.getElementById('diary-clear').addEventListener('click', ()=>{
-      if(confirm('정말로 일기 전체를 삭제할까요? 로컬 스토리지에서 지워집니다.')){localStorage.removeItem('diary-entries');loadDiary();}
-    });
-    loadDiary();
-
-    // 방명록
-    const guestForm = document.getElementById('guest-form');
-    const guestList = document.getElementById('guestbook-list');
-    function loadGuests(){
-      guestList.innerHTML='';
-      const guests = JSON.parse(localStorage.getItem('guests')||'[]');
-      guests.reverse().forEach(g=>{
-        const div = document.createElement('div'); div.className='guest-item';
-        div.innerHTML = `<div style="display:flex;justify-content:space-between"><strong>${escapeHtml(g.name||'Anon')}</strong><span class="meta">${g.date}</span></div><div style="margin-top:6px"><a href="${escapeAttr(g.url||'#')}">${escapeHtml(g.url||'')}</a></div>`;
-        guestList.appendChild(div);
-      });
-    }
-    guestForm.addEventListener('submit', (ev)=>{
-      ev.preventDefault();
-      const name = document.getElementById('guest-name').value.trim();
-      const url = document.getElementById('guest-url').value.trim();
-      if(!name){alert('이름을 입력해 주세요 / 名前を入れてください');return}
-      const guests = JSON.parse(localStorage.getItem('guests')||'[]');
-      guests.push({name,url,date:new Date().toLocaleString()});
-      localStorage.setItem('guests', JSON.stringify(guests));
-      document.getElementById('guest-name').value=''; document.getElementById('guest-url').value='';
-      loadGuests();
-    });
-    loadGuests();
-
-    // 간단한 XSS 방지
-    function escapeHtml(s){ if(!s) return ''; return s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
-    function escapeAttr(s){ if(!s) return ''; return s.replaceAll('"','%22').replaceAll('<',''); }
-
-    // 섹션으로 스크롤 이동
-    document.querySelectorAll('a[data-section]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        e.preventDefault(); const sec = a.getAttribute('data-section');
-        document.getElementById(sec+'-section').scrollIntoView({behavior:'smooth'});
-      });
-    });
-
-    // 기본 데모 이미지 교체 방법 안내 (콘솔 출력)
-    console.log('템플릿: gallery 내 이미지는 외부 URL을 사용하세요. 배너는 #banners 요소에 <a>로 추가합니다. 배포: Neocities, GitHub Pages 추천.');
-
-  </script>
-</body>
-</html>
+      <div>© <span id="year"></span> 황제펭귄 먹이주기 / X계정이 너무 터지는 바람에 짜증나서 만들었습니다.</div>
+      <div style="margin-top:6px">데모 기능: 로컬 스토
